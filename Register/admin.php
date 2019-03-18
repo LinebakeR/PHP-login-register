@@ -29,62 +29,60 @@ else{
 <div class="container">
 
 
-<table class="table table-striped table-bordered table-hover table-responsive">
-<thead class="thead-dark">
+    <table class="table table-striped table-bordered table-hover table-responsive">
+    <thead class="thead-dark">
 
-<table class="table table-striped table-bordered table-hover table-responsive">   
-<thead>
-
-    <tr>
-      <th scope="col" class="text-center">Nom</th>
-      <th scope="col" class="text-center">Email</th>
-      <th scope="col" class="text-center">Display</th>
-      <th scope="col" class="text-center">Edit</th>
-      <th scope="col" class="text-center">Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-
-    <?php
-        $connect = $pdo->prepare("SELECT username, email FROM users ORDER BY username");
-        $connect->execute();
-        $table = $connect->fetchAll();
-
-        //print_r($table);?>
-
-
-        <?php
-
-        foreach($table as $object)
-        {?>
+    <table class="table table-striped table-bordered table-hover table-responsive">   
+    <thead>
 
         <tr>
+        <th scope="col" class="text-center">Nom</th>
+        <th scope="col" class="text-center">Email</th>
+        <th scope="col" class="text-center">Display</th>
+        <th scope="col" class="text-center">Edit</th>
+        <th scope="col" class="text-center">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+
         <?php
-            foreach($object as $values)
+            $connect = $pdo->prepare("SELECT username, email FROM users ORDER BY username");
+            $connect->execute();
+            $table = $connect->fetchAll();
+
+
+            foreach($table as $object)
             {?>
-                <td><?php echo $values; ?></td>
+
+            <tr>
             <?php
+                foreach($object as $values)
+                {?>
+                    <td><?php echo $values; ?></td>
+                <?php
+                }?>
+                    <td class="text-center col-sm-1"><i class="material-icons">account_box</i></td>
+                    <td class="text-center col-sm-1"><i class="material-icons">edit</i></td>
+                    <td class="text-center col-sm-1"><i class="material-icons">delete</i></td>
+
+                </tr>
+                <?php
             }?>
-                <td class="text-center col-sm-1"><i class="material-icons">account_box</i></td>
-                <td class="text-center col-sm-1"><i class="material-icons">edit</i></td>
-                <td class="text-center col-sm-1"><i class="material-icons">delete</i></td>
 
-            </tr>
-            <?php
-        }?>
-
-</tbody>
-</table>
+    </tbody>
+    </table>
 
 </div>
 
 
 <div class="text-center">
-<form action="add.php">
-<button class="btn btn-primary">Ajouter un utilisateur</button>
-</form>
+    <form action="add.php">
+    <button class="btn btn-primary" >Ajouter un utilisateur</button>
+    <button class="btn btn-primary" formaction="produits.php">Gestion des produits</button>
+    </form>
+
 </div>
-</div>
+
 
 
 <?php
