@@ -15,7 +15,7 @@ $admin = $query->fetch(PDO::FETCH_OBJ);
 
 if(($_SESSION["auth"]->admin == 1)){?>
 
-<h1>Votre compte</h1>
+<h1>Espace Administration</h1>
 
 <?php debug($_SESSION);
 
