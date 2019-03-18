@@ -45,9 +45,14 @@ else{
   <tbody>
 
     <?php
-        $connect = $pdo->prepare("SELECT name, price, category_id FROM products ORDER BY name");
+        $connect = $pdo->prepare("SELECT products.name AS 'Name', price, categories.name 
+                                  FROM products INNER JOIN categories 
+                                  ON products.category_id = categories.id 
+                                  ORDER BY products.name");
         $connect->execute();
         $table = $connect->fetchAll();
+
+        print_r($table);
 
 
     foreach($table as $object)
