@@ -22,10 +22,11 @@ if (!empty($_POST) && !empty($_POST["email"]) && !empty($_POST["password"]) && !
         $_SESSION["flash"]["danger"] = "Identifiant ou mot de passe incorrect";
     }
 }
-
-
 ?>
-<?php require_once 'inc/header.php'; ?>
+
+<?php require_once 'inc/header.php';
+      require_once 'class/form.php';
+?>
 
 <h1>Se connecter</h1>
 
@@ -41,27 +42,15 @@ if (!empty($_POST) && !empty($_POST["email"]) && !empty($_POST["password"]) && !
     </div>
 <?php endif; ?>
 
-
 <form action="" method="post">
 
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" name="email" class="form-control" >
-    </div>
-
-    <div class="form-group">
-        <label for="password">Mot de passe</label>
-        <input type="password" name="password" class="form-control" >
-    </div>
-
-    <div class="form-group">
-        <label for="password_confirm">Confirmez votre mot de passe</label>
-        <input type="password" name="password_confirm" class="form-control" >
-    </div>
-
-    <a href="recupmdp.php">Mot de passe perdu</a>
-    <button type="submit"class="btn btn-primary" >Se connecter</button>
-
+<?php
+        $login = new Form($_POST);
+        echo $login->input("email", "email");
+        echo $login->input("password", "password");
+        echo $login->input("password_confirm", "password");
+        echo $login->submit();
+?>
 </form>
 
 <?php require_once 'inc/footer.php'; ?>

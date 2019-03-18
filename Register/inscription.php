@@ -1,6 +1,6 @@
-<?php require 'inc/header.php'; ?>
-<?php require 'inc/footer.php'; ?>
-<?php require 'inc/function.php'; ?>
+<?php require 'inc/header.php';
+      require 'inc/function.php';
+      require "class/form.php"?>
 <?php
 
 if(!empty($_POST)){
@@ -56,27 +56,16 @@ if(!empty($_POST)){
 
 
 <form action="" method="post">
+<?php
+    $register = new Form($_POST);
 
-    <div class="form-group">
-        <label for="pseudo">Pseudo</label>
-        <input type="text" name="username" class="form-control" >
-    </div>
+    echo $register->input("username", "text");
+    echo $register->input("email", "email");
+    echo $register->input("password", "password");
+    echo $register->input("password_confirm", "password");
+    echo $register->submit();
 
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" name="email" class="form-control" >
-    </div>
-
-    <div class="form-group">
-        <label for="password">Mot de passe</label>
-        <input type="password" name="password" class="form-control" >
-    </div>
-
-    <div class="form-group">
-        <label for="password_confirm">Confirmez votre mot de passe</label>
-        <input type="password" name="password_confirm" class="form-control" >
-    </div>
-
-    <button type="submit"class="btn btn-primary" >M'inscrire</button>
-
+?>
 </form>
+
+<?php require 'inc/footer.php'; ?>
