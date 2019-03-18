@@ -4,34 +4,23 @@ session_start();
 include_once 'inc/function.php';
 include_once 'inc/header.php';
 include_once 'inc/db.php';
+include_once 'inc/footer.php';
 ?>
 
 <?php
-$query = $pdo->query("SELECT * FROM users");
-$admin = $query->fetchAll(PDO::FETCH_OBJ);
+$email = $_SESSION['auth']->email;
+$query = $pdo->query("SELECT * FROM users WHERE email = '$email'");
+$admin = $query->fetch(PDO::FETCH_OBJ);
 
-if(/*isset($_SESSION['auth']) && */($admin->admin == 1))
-echo "bonjour";
+
+if(($_SESSION["auth"]->admin == 1)){?>
+
+<h1>Espace Administration</h1>
+
+<?php debug($_SESSION);
+
+}
 else{
-    //header('Location: index.php');
+    header('Location: index.php');
+//    echo "toto";
 } ?>
-
-<h1>Votre compte</h1>
-<?php debug($_SESSION); ?>
-
-<?php //else: ?>
-<?php
-
-
-?>
-<pre>
-<?php  print_r($admin);
-?>
-</pre>
-<pre>
-<?php  echo ($admin->admin);
-?>
-</pre>
-<?php include_once 'inc/footer.php'; ?>
-<?php //endif; ?>
-<button class="btn btn-primary">Voir les utilisateurs</button>
