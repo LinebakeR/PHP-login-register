@@ -45,10 +45,9 @@ else{
   <tbody>
 
     <?php
-        $connect = $pdo->prepare("SELECT name, price, category_id FROM products ORDER BY products");
+        $connect = $pdo->prepare("SELECT name, price, category_id FROM products ORDER BY name");
         $connect->execute();
         $table = $connect->fetchAll();
-        print_r($table);
 
 
     foreach($table as $object)
@@ -80,7 +79,6 @@ else{
     <button class="btn btn-primary" >Ajouter un produit</button>
     <button class="btn btn-primary" formaction="admin.php">Gestion des utilisteurs</button>
     </form>
-
 </div>
 
 
