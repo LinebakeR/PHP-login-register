@@ -3,7 +3,7 @@ session_start();
 include_once 'inc/function.php'; ?>
 <?php include_once 'inc/header.php'; ?>
 
-<?php// if(isset($_SESSION['auth'])): ?>
+<?php // if(isset($_SESSION['auth'])): ?>
 
 <h1>Votre compte</h1>
 <?php debug($_SESSION); ?>
