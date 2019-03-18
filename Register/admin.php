@@ -14,9 +14,9 @@ $admin = $query->fetch(PDO::FETCH_OBJ);
 
 if(($_SESSION["auth"]->admin == 1)){?>
 
-<h1>Espace Administration</h1>
+<h1 class="text-center">Espace Administration</h1>
 
-<?php debug($_SESSION);
+<?php //debug($_SESSION);
 
 }
 else{
@@ -29,12 +29,13 @@ else{
 <div class="container">
 
 <table class="table table-striped table-bordered table-hover table-responsive">   
-<thead class="thead-dark">
+<thead>
     <tr>
-      <th scope="col">Nom</th>
-      <th scope="col">Email</th>
-      <th scope="col">Edit User</th>
-      <th scope="col">Delete User</th>
+      <th scope="col" class="text-center">Nom</th>
+      <th scope="col" class="text-center">Email</th>
+      <th scope="col" class="text-center">Display</th>
+      <th scope="col" class="text-center">Edit</th>
+      <th scope="col" class="text-center">Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -59,8 +60,9 @@ else{
                 <td><?php echo $values; ?></td>
             <?php
             }?>
-                <td>button edit</td>
-                <td>button delete</td>
+                <td style="width:80px" class="text-center"><i class="material-icons">account_box</i></td>
+                <td style="width:80px" class="text-center"><i class="material-icons">edit</i></td>
+                <td style="width:80px" class="text-center"><i class="material-icons">delete</i></td>
 
             </tr>
             <?php
@@ -68,11 +70,15 @@ else{
 
 </tbody>
 </table>
-</div>
 
+<div class="text-center">
 <form action="add.php">
 <button class="btn btn-primary">Ajouter un utilisateur</button>
 </form>
+</div>
+</div>
+
+
 <?php
 include_once 'inc/footer.php';
 ?>
