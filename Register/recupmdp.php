@@ -1,5 +1,5 @@
-<?php require 'inc/header.php';
-require 'inc/function.php';
+<?php require_once 'inc/header.php';
+require_once 'inc/function.php';
 ?>
 
 <?php
@@ -14,9 +14,12 @@ if(isset($_POST['submit'])){
             $confMail = $pdo->prepare('SELECT * FROM users WHERE email = ?');
             $confMail->execute([$email]);
             $mailverif = $confMail->fetch();
+
+
             if($mailverif){
 
                 $_SESSION['flash']['success'] = "Email valide";
+                $_SESSION['email'] = $recupMail;
             }
 
             else{
@@ -28,7 +31,7 @@ if(isset($_POST['submit'])){
 
         }else{
 
-            {echo '<span style="color:red">' . "Veuillez entrer votre adresse email" . '</span>';}
+            $_SESSION['flash']['danger'] = "Veuillez entrer votre adresse email";
 
         }
 
