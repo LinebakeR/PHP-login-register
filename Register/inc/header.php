@@ -33,10 +33,14 @@ session_start();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Mon projet</a>
+          <a class="navbar-brand" href="index.php">Mon projet</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
+
+            <?php if($_SESSION["auth"]->admin == 1){?>S
+              <li><a href="admin.php">Administration</a></li>
+              <?php } ?>
                   <?php if(isset($_SESSION['auth'])): ?>
                   <li><a href="account.php">Mon compte</a></li>
                       <li><a href="logout.php">Se déconnecter</a></li>
