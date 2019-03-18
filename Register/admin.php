@@ -55,14 +55,14 @@ else{
         
         <tr>
         <?php
-        foreach($object as $values)
+            foreach($object as $values)
             {?>
                 <td><?php echo $values; ?></td>
             <?php
             }?>
-                <td style="width:80px" class="text-center"><i class="material-icons">account_box</i></td>
-                <td style="width:80px" class="text-center"><i class="material-icons">edit</i></td>
-                <td style="width:80px" class="text-center"><i class="material-icons">delete</i></td>
+                <td class="text-center col-sm-1"><i class="material-icons">account_box</i></td>
+                <td class="text-center col-sm-1"><i class="material-icons">edit</i></td>
+                <td class="text-center col-sm-1"><i class="material-icons">delete</i></td>
 
             </tr>
             <?php
