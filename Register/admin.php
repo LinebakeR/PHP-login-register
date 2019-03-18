@@ -28,7 +28,7 @@ else{
 
 <div class="container">
 
-<table class="table table-striped table-bordered table-hover">   
+<table class="table table-striped table-bordered table-hover table-responsive">   
 <thead class="thead-dark">
     <tr>
       <th scope="col">Nom</th>
@@ -68,6 +68,8 @@ else{
 </tbody>
 </table>
 </div>
+
+
 
 
 
