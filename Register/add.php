@@ -1,6 +1,5 @@
 <?php
 include_once "inc/header.php";
-
 if(!empty($_POST)){
 
     $errors = array();
@@ -46,19 +45,8 @@ if(!empty($_POST)){
     }
 }
 ?>
+<?php if(($_SESSION["auth"]->admin == 1)){?>
 <h1>Ajouter un utilisateur</h1>
-
-<?php if(!empty($errors)):?>
-    <div class="alert alert-danger">
-        <p>Vous n'avez pas rempli le formulaire correctement</p>
-        <ul>
-            <?php foreach ($errors as $error): ?>
-                <li><?=$error;?></li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
-<?php endif; ?>
-
 
 <form action="" method="post">
 
@@ -89,3 +77,6 @@ if(!empty($_POST)){
 
     <button type="submit"class="btn btn-primary" >Créer l'utilisateur</button>
 </form>
+<?php} else{
+    header('location: index.php');
+}

@@ -3,7 +3,7 @@ include "inc/header.php";
 if(isset($_POST)) {
     if(!empty($_POST["email"]) && !empty($_POST["username"]) && !empty($_POST["password"])) {
 
-        $pdo = new PDO('mysql:dbname=pool_php_rush;host=localhost', 'titi', '1234');
+        $pdo = new PDO('mysql:dbname=pool_php_rush;host=localhost', 'titi', '1234', NULL);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 

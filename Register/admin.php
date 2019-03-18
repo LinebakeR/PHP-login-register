@@ -14,9 +14,9 @@ $admin = $query->fetch(PDO::FETCH_OBJ);
 
 if(($_SESSION["auth"]->admin == 1)){?>
 
-<h1>Espace Administration</h1>
+<h1 class="text-center">Espace Administration</h1>
 
-<?php debug($_SESSION);
+<?php //debug($_SESSION);
 
 }
 else{
@@ -28,13 +28,19 @@ else{
 
 <div class="container">
 
+<<<<<<< HEAD
 <table class="table table-striped table-bordered table-hover table-responsive">
 <thead class="thead-dark">
+=======
+<table class="table table-striped table-bordered table-hover table-responsive">   
+<thead>
+>>>>>>> d1c84a29c7cfdf28b705b27d56a7a09314d62b56
     <tr>
-      <th scope="col">Nom</th>
-      <th scope="col">Email</th>
-      <th scope="col">Edit User</th>
-      <th scope="col">Delete User</th>
+      <th scope="col" class="text-center">Nom</th>
+      <th scope="col" class="text-center">Email</th>
+      <th scope="col" class="text-center">Display</th>
+      <th scope="col" class="text-center">Edit</th>
+      <th scope="col" class="text-center">Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -54,13 +60,14 @@ else{
 
         <tr>
         <?php
-        foreach($object as $values)
+            foreach($object as $values)
             {?>
                 <td><?php echo $values; ?></td>
             <?php
             }?>
-                <td>button edit</td>
-                <td>button delete</td>
+                <td class="text-center col-sm-1"><i class="material-icons">account_box</i></td>
+                <td class="text-center col-sm-1"><i class="material-icons">edit</i></td>
+                <td class="text-center col-sm-1"><i class="material-icons">delete</i></td>
 
             </tr>
             <?php
@@ -68,6 +75,7 @@ else{
 
 </tbody>
 </table>
+<<<<<<< HEAD
 </div>
 <<<<<<< HEAD
 <form action="add.php">
@@ -82,6 +90,17 @@ else{
 
 
 >>>>>>> dd3c72f2efc065494787d39d9a5a652d66ab3b47
+=======
+
+<div class="text-center">
+<form action="add.php">
+<button class="btn btn-primary">Ajouter un utilisateur</button>
+</form>
+</div>
+</div>
+
+
+>>>>>>> d1c84a29c7cfdf28b705b27d56a7a09314d62b56
 <?php
 include_once 'inc/footer.php';
 ?>
