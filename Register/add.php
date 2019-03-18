@@ -1,5 +1,7 @@
 <?php
 include_once "inc/header.php";
+include_once "class/form.php";
+
 if(!empty($_POST)){
 
     $errors = array();
@@ -45,38 +47,19 @@ if(!empty($_POST)){
     }
 }
 ?>
-<?php if(($_SESSION["auth"]->admin == 1)){?>
-<h1>Ajouter un utilisateur</h1>
+<?php
+if(($_SESSION["auth"]->admin == 1)){
 
-<form action="" method="post">
+    $add = new Form($_POST);
 
-    <div class="form-group">
-        <label for="pseudo">Pseudo</label>
-        <input type="text" name="username" class="form-control" >
-    </div>
+    echo $add->input("username", "text");
+    echo $add->input("email", "email");
+    echo $add->input("password", "password");
+    echo $add->input("password_confirm", "password");
+    echo $add->submit();
 
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" name="email" class="form-control" >
-    </div>
-
-    <div class="form-group">
-        <label for="password">Mot de passe</label>
-        <input type="password" name="password" class="form-control" >
-    </div>
-
-    <div class="form-group">
-        <label for="password_confirm">Confirmez votre mot de passe</label>
-        <input type="password" name="password_confirm" class="form-control" >
-    </div>
-    <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" name ="is_admin">
-        <label class="form-check-label" for="is_admin">Administrateur</label>
-    </div>
-
-
-    <button type="submit"class="btn btn-primary" >Créer l'utilisateur</button>
-</form>
-<?php} else{
-    header('location: index.php');
 }
+else{
+    header("location: index.php");
+
+} ?>
