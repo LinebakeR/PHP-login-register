@@ -28,13 +28,13 @@ else{
 
 <div class="container">
 
-<<<<<<< HEAD
+
 <table class="table table-striped table-bordered table-hover table-responsive">
 <thead class="thead-dark">
-=======
+
 <table class="table table-striped table-bordered table-hover table-responsive">   
 <thead>
->>>>>>> d1c84a29c7cfdf28b705b27d56a7a09314d62b56
+
     <tr>
       <th scope="col" class="text-center">Nom</th>
       <th scope="col" class="text-center">Email</th>
@@ -75,22 +75,9 @@ else{
 
 </tbody>
 </table>
-<<<<<<< HEAD
+
 </div>
-<<<<<<< HEAD
-<form action="add.php">
-<button class="btn btn-primary">Ajouter un utilisateur</button>
-</form>
-=======
 
-
-
-
-
-
-
->>>>>>> dd3c72f2efc065494787d39d9a5a652d66ab3b47
-=======
 
 <div class="text-center">
 <form action="add.php">
@@ -100,7 +87,6 @@ else{
 </div>
 
 
->>>>>>> d1c84a29c7cfdf28b705b27d56a7a09314d62b56
 <?php
 include_once 'inc/footer.php';
 ?>
