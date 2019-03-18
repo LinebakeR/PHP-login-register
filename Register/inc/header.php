@@ -35,10 +35,12 @@ session_start();
           </button>
           <a class="navbar-brand" href="index.php">Mon projet</a>
         </div>
+          <div>
+              <a href="" class="navbar-brand"></a>
+          </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-
-            <?php if($_SESSION["auth"]->admin == 1){?>S
+            <?php if($_SESSION["auth"]->admin == 1){?>
               <li><a href="admin.php">Administration</a></li>
               <?php } ?>
                   <?php if(isset($_SESSION['auth'])): ?>
