@@ -12,8 +12,7 @@ if(!empty($_POST)){
 
         $errors["username"] = "votre pseudo n'est pas valide";
     }
-    
-    
+
     if(empty($_POST["email"]) || !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
 
         $errors["email"] = "votre email n'est pas valide";

@@ -28,7 +28,7 @@ else{
 
 <div class="container">
 
-<table class="table table-striped table-bordered table-hover">   
+<table class="table table-striped table-bordered table-hover table-responsive">   
 <thead class="thead-dark">
     <tr>
       <th scope="col">Nom</th>
@@ -69,9 +69,19 @@ else{
 </tbody>
 </table>
 </div>
+<<<<<<< HEAD
 <form action="add.php">
 <button class="btn btn-primary">Ajouter un utilisateur</button>
 </form>
+=======
+
+
+
+
+
+
+
+>>>>>>> dd3c72f2efc065494787d39d9a5a652d66ab3b47
 <?php
 include_once 'inc/footer.php';
 ?>

@@ -8,3 +8,4 @@ if(isset($_SESSION["auth"])) {
 else{
     header('location: login.php');
 }
+require_once "inc/footer.php";
