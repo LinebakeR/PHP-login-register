@@ -59,7 +59,8 @@ if (!empty($_POST) && !empty($_POST["email"]) && !empty($_POST["password"]) && !
         <input type="password" name="password_confirm" class="form-control" >
     </div>
 
-    <button type="submit"class="btn btn-primary" >M'inscrire</button>
+    <button type="submit"class="btn btn-primary" >Me connecter</button>
+    <a href="recupmdp.php">Mot de passe perdu</a>
 
 </form>
 
