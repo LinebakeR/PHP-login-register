@@ -38,7 +38,7 @@ if(!empty($_POST)){
     $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
     $req->execute([$_POST["username"], $password, $_POST["email"]]);
     $req->fetchAll();
-    header('location: account.php');
+    header('location: index.php');
     }
 }
 ?>
