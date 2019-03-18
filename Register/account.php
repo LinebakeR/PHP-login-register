@@ -20,7 +20,7 @@ include_once 'inc/function.php'; ?>
  ?>
 </pre>
 <pre>
-<?php  echo ($users[1]->password);
+<?php  echo ($users[0]->admin);
 ?>
 </pre>
 <?php include_once 'inc/footer.php'; ?>
