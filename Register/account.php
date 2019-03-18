@@ -23,6 +23,10 @@ include_once 'inc/function.php'; ?>
 <?php  echo ($users[0]->admin);
 ?>
 </pre>
-<?php include_once 'inc/footer.php'; ?>
+
 <?php //endif; ?>
-<button class="btn btn-primary">Voir les utilisateurs</button>
+<div>
+    <form action="modify.php">
+     <button class="btn btn-primary">Modifier le compte</button>
+    </form>
+<?php include_once 'inc/footer.php'; ?>

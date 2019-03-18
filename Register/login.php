@@ -61,6 +61,7 @@ if (!empty($_POST) && !empty($_POST["email"]) && !empty($_POST["password"]) && !
 
     <button type="submit"class="btn btn-primary" >Me connecter</button>
     <a href="recupmdp.php">Mot de passe perdu</a>
+    <button type="submit"class="btn btn-primary" >Se connecter</button>
 
 </form>
 

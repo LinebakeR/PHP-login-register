@@ -1,7 +1,5 @@
-<?php require 'inc/header.php'; ?>
-<?php require 'inc/footer.php'; ?>
-<?php require 'inc/function.php'; ?>
 <?php
+include_once "inc/header.php";
 
 if(!empty($_POST)){
 
@@ -31,27 +29,34 @@ if(!empty($_POST)){
         $errors["password"] = "votre mot de passe n'est pas valide";
     }
 
-    if(empty($errors)){
-
-    $req =$pdo->prepare("INSERT INTO users SET username = ?, password = ?, email = ?, admin = 0");
-    $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
-    $req->execute([$_POST["username"], $password, $_POST["email"]]);
-    $req->fetchAll();
-    header('location: index.php');
+    if(empty($errors)) {
+        if ($_POST["is_admin"]) {
+            $req = $pdo->prepare("INSERT INTO users SET username = ?, password = ?, email = ?, admin = 1");
+            $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
+            $req->execute([$_POST["username"], $password, $_POST["email"]]);
+            $req->fetchAll();
+            header('location: index.php');
+        } else {
+            $req = $pdo->prepare("INSERT INTO users SET username = ?, password = ?, email = ?, admin = 0");
+            $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
+            $req->execute([$_POST["username"], $password, $_POST["email"]]);
+            $req->fetchAll();
+            header('location: index.php');
+        }
     }
 }
 ?>
-<h1>S'inscrire</h1>
+<h1>Ajouter un utilisateur</h1>
 
 <?php if(!empty($errors)):?>
-<div class="alert alert-danger">
-    <p>Vous n'avez pas rempli le formulaire correctement</p>
-    <ul>
-        <?php foreach ($errors as $error): ?>
-            <li><?=$error;?></li>
-        <?php endforeach; ?>
-    </ul>
-</div>
+    <div class="alert alert-danger">
+        <p>Vous n'avez pas rempli le formulaire correctement</p>
+        <ul>
+            <?php foreach ($errors as $error): ?>
+                <li><?=$error;?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
 <?php endif; ?>
 
 
@@ -76,7 +81,11 @@ if(!empty($_POST)){
         <label for="password_confirm">Confirmez votre mot de passe</label>
         <input type="password" name="password_confirm" class="form-control" >
     </div>
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" name ="is_admin">
+        <label class="form-check-label" for="is_admin">Administrateur</label>
+    </div>
 
-    <button type="submit"class="btn btn-primary" >M'inscrire</button>
 
+    <button type="submit"class="btn btn-primary" >Créer l'utilisateur</button>
 </form>
