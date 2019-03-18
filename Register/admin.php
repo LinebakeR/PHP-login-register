@@ -69,19 +69,10 @@ else{
 </tbody>
 </table>
 </div>
-<<<<<<< HEAD
+
 <form action="add.php">
 <button class="btn btn-primary">Ajouter un utilisateur</button>
 </form>
-=======
-
-
-
-
-
-
-
->>>>>>> dd3c72f2efc065494787d39d9a5a652d66ab3b47
 <?php
 include_once 'inc/footer.php';
 ?>
