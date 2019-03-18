@@ -61,6 +61,7 @@ else{
             }?>
                 <td>button edit</td>
                 <td>button delete</td>
+
             </tr>
             <?php
         }?>
@@ -68,11 +69,9 @@ else{
 </tbody>
 </table>
 </div>
-
-
-
-
-
+<form action="add.php">
+<button class="btn btn-primary">Ajouter un utilisateur</button>
+</form>
 <?php
 include_once 'inc/footer.php';
 ?>
