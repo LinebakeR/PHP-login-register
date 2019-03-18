@@ -51,11 +51,11 @@ if (!empty($_POST) && !empty($_POST["email"]) && !empty($_POST["password"]) && !
         echo $login->input("password_confirm", "password");
         echo $login->submit();
 ?>
-</form>
-<h4 class="title-element"> Récupération du mot de passe</h4>
-<form method="post" class="default-form">
-    <input type="email" name="email" placeholder="Votre adresse mail" action="">
-    <input type="submit" value="Submit" name="submit">
-    </form>
+<button <h4 type="submit" class="title-element"> Mot de passe oublié</h4></button>
+
+
+
+
+
 
 <?php require_once 'inc/footer.php'; ?>
