@@ -20,7 +20,7 @@ if(isset($_POST)) {
 
 
 
-<h1>Se connecter</h1>
+<h1>Creer un admin</h1>
 
 
 <form action="" method="post">
