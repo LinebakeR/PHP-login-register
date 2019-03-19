@@ -31,7 +31,9 @@ else{
 
 ?>
 <div class="container">
-	<h2>Hover Rows</h2>
+    <div class="container text-center">
+	<h2>Utilisateur à modifier</h2>
+    </div>
 	<p></p>
 	<table class="table table-hover">
 		<thead>

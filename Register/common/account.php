@@ -16,7 +16,7 @@ include_once '../inc/header.php'; ?>
 
 
 <pre>
-<h3>Hello <?= $username ?>, how are you ? <br> your email is <?= $_SESSION["auth"]->email ?></h3>
+<h3>Hello <?= $_SESSION["auth"]->username ?>, how are you ? <br>your email is <?= $_SESSION["auth"]->email ?></h3>
 </pre>
 <div>
     <form action="modify.php">
