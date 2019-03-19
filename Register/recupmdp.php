@@ -1,8 +1,5 @@
 <?php require_once 'inc/header.php';
 require_once 'inc/function.php';
-?>
-
-<?php
 
 if(isset($_POST['submit'])){
     if(!empty($_POST['email'])){
@@ -17,24 +14,16 @@ if(isset($_POST['submit'])){
 
 
             if($mailverif){
-
                 $_SESSION['flash']['success'] = "Email valide";
                 $_SESSION['email'] = $recupMail;
             }
-
             else{
-
                 $_SESSION['flash']['danger'] = "Votre email n'existe pas";    
             }
-
-
-
         }else{
 
             $_SESSION['flash']['danger'] = "Veuillez entrer votre adresse email";
-
         }
-
     }
 }
 
