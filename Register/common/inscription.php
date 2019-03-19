@@ -56,7 +56,7 @@ if(!empty($_POST)){
 
 <form action="" method="post">
     <div class="container col-sm-offset-4 col-sm-3">
-        <h1>S'inscrire</h1>
+        <h3>S'inscrire</h3>
         <?php
     $register = new Form($_POST);
 
