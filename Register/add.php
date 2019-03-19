@@ -35,18 +35,19 @@ if(!empty($_POST)){
             $req = $pdo->prepare("INSERT INTO users SET username = ?, password = ?, email = ?, admin = 1");
             $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
             $req->execute([$_POST["username"], $password, $_POST["email"]]);
-            $req->fetchAll();
-            header('location: index.php');
+            header('location: admin.php');
+            exit();
         } else {
             $req = $pdo->prepare("INSERT INTO users SET username = ?, password = ?, email = ?, admin = 0");
             $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
             $req->execute([$_POST["username"], $password, $_POST["email"]]);
-            $req->fetchAll();
-            header('location: index.php');
+            header('location: admin.php');
+            exit();
         }
     }
 }
 ?>
+<form action="" method="post">
 <?php
 if(($_SESSION["auth"]->admin == 1)){
 
@@ -64,3 +65,4 @@ else{
     header("location: index.php");
 
 } ?>
+</form>
