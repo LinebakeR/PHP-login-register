@@ -2,7 +2,7 @@
 include_once "../inc/header.php";
 include_once "../class/form.php";
 
-if(!empty($_POST) && !empty($_POST['name']) && !empty($_POST['price']) && !empty($_POST['category_id'])){
+if(!isset($_POST) && !empty($_POST['name']) && !empty($_POST['price']) && !empty($_POST['category_id'])){
 
 
     require_once '../inc/db.php';
@@ -11,10 +11,10 @@ if(!empty($_POST) && !empty($_POST['name']) && !empty($_POST['price']) && !empty
     $req = $pdo->prepare("SELECT id FROM products WHERE name = ?");
     $req->execute([$_POST["name"]]);
     $name = $req->fetch();
+
     if ($name) {
         $_SESSION['flash']['danger'] = "Ce nom est déja utilisé";
     }
-
 
     else{
 
