@@ -28,6 +28,7 @@ if($_POST){
                 $hash_code = password_hash($recupCode, PASSWORD_DEFAULT);
                 $newMdp = $pdo->prepare("UPDATE users SET password = '$hash_code' WHERE email = '$email'");
                 $newMdp->execute([$hash_code]);
+                die(var_dump($recupCode));
                 
             }
             else{
