@@ -28,32 +28,16 @@ if(isset($_POST['submit'])){
                     var_dump($hash_code);
                 }
             }
-<<<<<<< HEAD
 
                     else{
 
                         $_SESSION['flash']['danger'] = "Votre email n'existe pas";    
                     }
-                
-            
-            
-
-            
-
         }
-    }else{
-
-    $_SESSION['flash']['danger'] = "Veuillez entrer votre adresse email";
-=======
-            else{
-                $_SESSION['flash']['danger'] = "Votre email n'existe pas";    
-            }
-        }else{
-
+        else
+            {
             $_SESSION['flash']['danger'] = "Veuillez entrer votre adresse email";
-        }
-    }
->>>>>>> 8d15064c705fc82cde5cd8d2c7db6cf35bcf5619
+            }
 }
 
 ?>
