@@ -13,6 +13,14 @@ function str_random($length){
 function deleteUser($email){
 
 	include_once "db.php";
-	return $pdo->query("DELETE FROM users WHERE email ='$email' ");
+	return $pdo->query("DELETE FROM users WHERE email = '$email'");
+
+}
+
+function deleteProduct($id){
+
+	include_once "db.php";
+    $pdo->query("DELETE FROM products WHERE id = '$id'");
+    //return 0;
 
 }
