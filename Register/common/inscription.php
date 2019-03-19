@@ -60,10 +60,10 @@ if(!empty($_POST)){
         <?php
     $register = new Form($_POST);
 
-    echo $register->input("username", "text");
-    echo $register->input("email", "email");
-    echo $register->input("password", "password");
-    echo $register->input("password_confirm", "password");
+    echo $register->input("username", "text", "Nom d'utilisateur");
+    echo $register->input("email", "email", "Adresse Email");
+    echo $register->input("password", "password", "Mot de passe");
+    echo $register->input("password_confirm", "password", "Confirmez votre mot de passe");
     echo $register->submit();
 
 ?>

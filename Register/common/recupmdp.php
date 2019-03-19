@@ -44,10 +44,14 @@ if($_POST){
     }
 }
 ?>
+<div class="container col-sm-offset-4 col-sm-3">
+    <h3>Mot de passe oublié ?</h3>
 <form action="" method="post">
 <?php
         $recup = new Form($_POST);
-        echo $recup->input("email", "email");
+        echo $recup->input("email", "email", "Votre adresse email ?");
         echo $recup->submit();
 ?>
 </form>
+    <?php include_once "Register/inc/footer.php"; ?>
+</div>
