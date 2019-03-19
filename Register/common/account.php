@@ -23,6 +23,7 @@ include_once '../inc/header.php'; ?>
      <button class="btn btn-primary">Modifier le compte</button>
     </form>
 </div>
+</pre>
 <?php include_once '../inc/footer.php'; ?>
 
     <?php else: ?>
