@@ -51,11 +51,18 @@ if (!empty($_POST) && !empty($_POST["email"]) && !empty($_POST["password"]) && !
         echo $login->input("password_confirm", "password");
         echo $login->submit();
 ?>
+<<<<<<< HEAD
 <button <h4 type="submit" class="title-element"> Mot de passe oublié</h4></button>
 
 
 
 
 
+=======
+</form>
+<form action="recupmdp.php" method="post">
+<button class="btn btn-primary">Mot de passe oublié</button>
+</form>
+>>>>>>> c58ebcfc79df0a32a237fe415b5ab16d835bc49c
 
 <?php require_once 'inc/footer.php'; ?>
