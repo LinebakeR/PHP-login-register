@@ -40,7 +40,8 @@ if(isset($_POST['submit'])){
 
 ?>
 <h4 class="title-element"> Récupération du mot de passe</h4>
-<form method="post" class="default-form">
+<form method="post" action
+      class="default-form">
     <input type="email" name="email" placeholder="Votre adresse mail" action="">
     <input type="submit" value="Submit" name="submit">
     </form>
