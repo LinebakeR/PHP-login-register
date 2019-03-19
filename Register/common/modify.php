@@ -15,23 +15,23 @@ require_once '../inc/db.php';
     }
 
     if(empty($errors)){
-        $email = $_POST["email"];
+        $email = $_SESSION["auth"]->email;
         $username = $_POST["username"];
-        $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
-        $req =$pdo->prepare("UPDATE users SET username = '$username', password = '$hash' WHERE email = '$email'");
-        $req->execute();
-        $_SESSION["flash"]["succes"] =  "Votre compte a bien été modifié";
-        header('location: account.php');
-    }
+        $req =$pdo->prepare("UPDATE users SET username = ?, password = ? WHERE email = '$email'");
+		$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+		$req->execute([$username, $password]);
 
+        $_SESSION["flash"]["succes"] =  "Votre compte a bien été modifié";
+        header('location: logout.php');
+	}
 ?>
 
+<div class="container col-sm-offset-4 col-sm-3">
+    <h3>Modifier son compte</h3>
 
-<h3>Modifier son compte</h3>
+    <form action="" method="post">
 
-<form action="" method="post">
-
-    <div class="form-group">
+    <div class="form-group ">
         <label for="pseudo">Pseudo</label>
         <input type="text" name="username" class="form-control" value="<?php echo $_SESSION["auth"]->username; ?>">
     </div>
@@ -54,3 +54,4 @@ require_once '../inc/db.php';
     <button type="submit"class="btn btn-primary" >Modifier mon compte</button>
 
 </form>
+</div>
