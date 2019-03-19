@@ -29,7 +29,7 @@ if($_POST){
                 $newMdp->execute([$hash_code]);
                 mail($email, $sujet, $message);
                 
-                //die(var_dump($recupCode)); pour teste
+                die(var_dump($recupCode)); //pour teste
                 
             }
             else{
