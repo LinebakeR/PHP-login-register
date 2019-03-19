@@ -44,7 +44,7 @@ session_start();
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <?php if($_SESSION["auth"]->admin == 1){?>
-              <li><a href="../admin/admin.php">Administration</a></li>
+              <li><a href="/rush_php/Register/admin/admin.php">Administration</a></li>
               <?php } ?>
                   <?php if(isset($_SESSION['auth'])): ?>
                   <li><a href="/rush_php/Register/common/account.php">Mon compte</a></li>
