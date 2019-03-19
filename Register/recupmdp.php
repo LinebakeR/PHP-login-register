@@ -1,8 +1,5 @@
 <?php require_once 'inc/header.php';
 require_once 'inc/function.php';
-?>
-
-<?php
 
 if(isset($_POST['submit'])){
     if(!empty($_POST['email'])){
@@ -21,7 +18,6 @@ if(isset($_POST['submit'])){
             
 
             if($mailverif){
-
                 $_SESSION['flash']['success'] = "Email valide";
                 $_SESSION['email'] = $recupMail;
                 $recupCode = "";
@@ -32,6 +28,7 @@ if(isset($_POST['submit'])){
                     var_dump($hash_code);
                 }
             }
+<<<<<<< HEAD
 
                     else{
 
@@ -47,6 +44,16 @@ if(isset($_POST['submit'])){
     }else{
 
     $_SESSION['flash']['danger'] = "Veuillez entrer votre adresse email";
+=======
+            else{
+                $_SESSION['flash']['danger'] = "Votre email n'existe pas";    
+            }
+        }else{
+
+            $_SESSION['flash']['danger'] = "Veuillez entrer votre adresse email";
+        }
+    }
+>>>>>>> 8d15064c705fc82cde5cd8d2c7db6cf35bcf5619
 }
 
 ?>
