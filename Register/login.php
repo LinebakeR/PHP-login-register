@@ -52,10 +52,8 @@ if (!empty($_POST) && !empty($_POST["email"]) && !empty($_POST["password"]) && !
         echo $login->submit();
 ?>
 </form>
-<h4 class="title-element"> Récupération du mot de passe</h4>
-<form method="post" class="default-form">
-    <input type="email" name="email" placeholder="Votre adresse mail" action="">
-    <input type="submit" value="Submit" name="submit">
-    </form>
+<form action="recupmdp.php" method="post">
+<button class="btn btn-primary">Mot de passe oublié</button>
+</form>
 
 <?php require_once 'inc/footer.php'; ?>
