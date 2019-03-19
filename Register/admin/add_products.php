@@ -2,36 +2,69 @@
 include_once "../inc/header.php";
 include_once "../class/form.php";
 
-if(!isset($_POST) && !empty($_POST['name']) && !empty($_POST['price']) && !empty($_POST['category_id'])){
+if(!empty($_POST)){
 
+    $errors = array();
 
-    require_once '../inc/db.php';
+    if (empty($_POST['name'])) {
 
+        $errors['name'] = "Le nom du produit est obligatoire";
 
-    $req = $pdo->prepare("SELECT id FROM products WHERE name = ?");
-    $req->execute([$_POST["name"]]);
-    $name = $req->fetch();
+    }
+    if (empty($_POST['price'])){
 
-    if ($name) {
-        $_SESSION['flash']['danger'] = "Ce nom est déja utilisé";
+        $errors['price'] = "Le prix du produit est obligatoire";
+
+    }
+    
+    if (empty($_POST['category_id'])){
+
+        $errors['category_id'] = "La catégorie est obligatoire";
     }
 
-    else{
+    if (empty($errors)) {
 
-        $req = $pdo->prepare("INSERT INTO products SET name = ?, price = ?, category_id = ?");
-        $req->execute([$_POST["name"], $_POST["price"], $_POST["category_id"]]);
-        header('location: produits.php');
-        exit();
+
+        require_once '../inc/db.php';
+
+
+        $req = $pdo->prepare("SELECT id FROM products WHERE name = ?");
+        $req->execute([$_POST["name"]]);
+        $name = $req->fetch();
+
+        //var_dump($name);
+
+        if (isset($name->id)) {
+            ?>
+                <div class="container alert alert-danger">Ce nom est déjà utilisé.</div>   
+            <?php
+        }
+
+            else{
+
+                $req = $pdo->prepare("INSERT INTO products SET name = ?, price = ?, category_id = ?");
+                $req->execute([$_POST["name"], $_POST["price"], $_POST["category_id"]]);
+                header('location: produits.php');
+                exit();
+            }
     }
-   
-}
-
-else{
-    $_SESSION['flash']['danger'] = "Tous les champs sont obligatoires.";
 }
 
 
 ?>
+
+<?php if(!empty($errors)):?>
+<div class="container alert alert-danger">
+    <p>Vous n'avez pas rempli le formulaire correctement</p>
+    <ul>
+        <?php foreach ($errors as $error): ?>
+            <li><?=$error;?></li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<?php endif; ?>
+
+
 <div class="container col-sm-offset-4 col-sm-3">
 <h3>Ajouter un produit</h3>
 <form action="" method="post">
