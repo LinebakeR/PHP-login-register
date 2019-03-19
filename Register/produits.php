@@ -64,9 +64,9 @@ else{
             <td><?php echo $values; ?></td>
         <?php
         }?>
-            <td class="text-center col-sm-1"><i class="material-icons">account_box</i></td>
-            <td class="text-center col-sm-1"><i class="material-icons">edit</i></td>
-            <td class="text-center col-sm-1"><i class="material-icons">delete</i></td>
+            <td class="text-center col-sm-1"><a href="products_page.php"><i class="material-icons">account_box</i></a></td>
+            <td class="text-center col-sm-1"><a href="products_edit.php"><i class="material-icons">edit</i></a></td>
+            <td class="text-center col-sm-1"><a href=""#""><i class="material-icons">delete</i></a></td>
 
         </tr>
         <?php
