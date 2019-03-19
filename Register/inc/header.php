@@ -36,7 +36,7 @@ session_start();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/rush_php/Register/index.php">Mon projet</a>
+          <a class="navbar-brand" href="/rush_php/Register/index.php">Le site de la Dream Team</a>
         </div>
           <div>
               <a href="" class="navbar-brand"></a>
