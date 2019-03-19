@@ -45,10 +45,13 @@ else{
   <tbody>
 
     <?php
-        $connect = $pdo->prepare("SELECT name, price, category_id FROM products ORDER BY products");
+        $connect = $pdo->prepare("SELECT products.name AS 'Name', price, categories.name 
+                                  FROM products INNER JOIN categories 
+                                  ON products.category_id = categories.id 
+                                  ORDER BY products.name");
         $connect->execute();
         $table = $connect->fetchAll();
-        print_r($table);
+
 
 
     foreach($table as $object)
@@ -61,9 +64,9 @@ else{
             <td><?php echo $values; ?></td>
         <?php
         }?>
-            <td class="text-center col-sm-1"><i class="material-icons">account_box</i></td>
-            <td class="text-center col-sm-1"><i class="material-icons">edit</i></td>
-            <td class="text-center col-sm-1"><i class="material-icons">delete</i></td>
+            <td class="text-center col-sm-1"><a href="products_page.php"><i class="material-icons">account_box</i></a></td>
+            <td class="text-center col-sm-1"><a href="products_edit.php"><i class="material-icons">edit</i></a></td>
+            <td class="text-center col-sm-1"><a href=""#""><i class="material-icons">delete</i></a></td>
 
         </tr>
         <?php
@@ -80,7 +83,6 @@ else{
     <button class="btn btn-primary" >Ajouter un produit</button>
     <button class="btn btn-primary" formaction="admin.php">Gestion des utilisteurs</button>
     </form>
-
 </div>
 
 
