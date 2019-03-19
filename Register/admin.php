@@ -46,7 +46,7 @@ else{
     <tbody>
 
         <?php
-            $connect = $pdo->prepare("SELECT username, email FROM users ORDER BY username");
+            $connect = $pdo->prepare("SELECT username, email FROM users WHERE admin = 0 ORDER BY username");
             $connect->execute();
             $table = $connect->fetchAll();
 
