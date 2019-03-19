@@ -6,7 +6,7 @@ if(!empty($_POST)){
 
     $errors = array();
 
-    require_once 'inc/db.php';
+    require_once '../inc/db.php';
     if(empty($_POST["username"]) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST["username"])){
 
         $errors["username"] = "votre pseudo n'est pas valide";
