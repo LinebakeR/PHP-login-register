@@ -34,8 +34,9 @@ class Form{
     }
 
     public function checkbox($value){
-        return '<div class="form-check"><input type="checkbox" class="form-check-input" id="exampleCheck1" name ="is_admin">
-        <label class="form-check-label" for="is_admin">'.$value.'</label>
+        return '<div class="form-check">
+        <label class="form-check-label" for="is_admin"><input type="checkbox" class="form-check-input" id="exampleCheck1" name ="is_admin">
+        '.$value.'</label>
     </div>';
 
     }

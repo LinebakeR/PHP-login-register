@@ -2,10 +2,12 @@
 require_once '../inc/function.php';
 require_once "../class/form.php";
 
+$sujet = "Nouveau mot de passe";
+$message = "Voici votre nouveau mot de passe" . $recupCode;
+
+
 if($_POST){
-    echo "coucou ";
     if(!empty($_POST['email'])){
-        echo"coucou2 ";
         if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
             
             $email = $_POST['email'];
@@ -14,33 +16,32 @@ if($_POST){
             include_once "../inc/db.php";
             $confMail = $pdo->prepare('SELECT * FROM users WHERE email = ?');
             $confMail->execute([$email]);
-            $mailverif = $confMail->fetch();
-            echo"coucou 3"; 
-/* 
-            //2eme requete, ecrase ancien password dans BDD
-              */
+            $mailverif = $confMail->fetch(); 
+            
             
             //si mail OK, creation nouveau hash mdp
             if($mailverif){
-            
-                echo "Email valide";
+                
+                $_SESSION['flash']['success'] = "Votre nouveau mot de passe vous a été envoyé !";
                 $recupCode = str_random(8);
                 $hash_code = password_hash($recupCode, PASSWORD_DEFAULT);
                 $newMdp = $pdo->prepare("UPDATE users SET password = '$hash_code' WHERE email = '$email'");
                 $newMdp->execute([$hash_code]);
-                //die(var_dump($recupCode)); pour test
+                mail($email, $sujet, $message);
+                
+                die(var_dump($recupCode)); //pour teste
                 
             }
             else{
-                echo "mail non existant";
+                $_SESSION['flash']['danger'] = "Cette adresse email n'est pas enregistré";
             }
         }
         else{
-            echo "mail non valide";
+            $_SESSION['flash']['danger'] = "L'email n'est pas valide";
         }
     }
     else{
-        echo "mail non entré";
+        $_SESSION['flash']['danger'] = "Veuillez entrer votre adresse mail";
     }
 }
 ?>
