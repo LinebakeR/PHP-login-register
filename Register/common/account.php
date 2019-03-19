@@ -17,13 +17,13 @@ include_once '../inc/header.php'; ?>
 
 <pre>
 <h3>Hello <?= $username ?>, how are you ? <br> your email is <?= $_SESSION["auth"]->email ?></h3>
-
+</pre>
 <div>
     <form action="modify.php">
      <button class="btn btn-primary">Modifier le compte</button>
     </form>
 </div>
-</pre>
+
 <?php include_once '../inc/footer.php'; ?>
 
     <?php else: ?>
