@@ -7,37 +7,69 @@ $id = $_GET['product_id'];
 $nom = $_POST['name'];
 $prix = $_POST['price'];
 
+if(!empty($_POST)){
 
-if(!empty($_POST) && !empty($_POST['name']) && !empty($_POST['price']) && !empty($_POST['category_id'])){
+    $errors = array();
 
-    require_once '../inc/db.php';
+    if (empty($_POST['name'])) {
 
+        $errors['name'] = "Le nom du produit est obligatoire";
 
-    $req = $pdo->prepare("SELECT id FROM products WHERE name = ?");
-    $req->execute([$_POST["name"]]);
-    $name = $req->fetch();
-    if (isset($name->id)) {
-        $_SESSION['flash']['danger'] = "Ce nom est déja utilisé";
+    }
+    if (empty($_POST['price'])){
+
+        $errors['price'] = "Le prix du produit est obligatoire";
+
+    }
+    
+    if (empty($_POST['category_id'])){
+
+        $errors['category_id'] = "La catégorie est obligatoire";
     }
 
+    if (empty($errors)) {
 
+
+        require_once '../inc/db.php';
+
+
+        $req = $pdo->prepare("SELECT id FROM products WHERE name = ?");
+        $req->execute([$_POST["name"]]);
+        $name = $req->fetch();
+    }
+//var_dump($name);
+    if (isset($name->id)) {
+        ?>
+            <div class="container alert alert-danger">Ce nom est déjà utilisé.</div>   
+        <?php
+        
+    }
     else{
 
         $req = $pdo->prepare("UPDATE products SET name = '$nom', price = '$prix' WHERE category_id = '".$id."'");
+        echo $_GET['name'];
         $req->execute();
-        $_SESSION['flash']['success'] = "Votre produit a bien été modifié";
-        header('location: produits.php');
-        
+         ?>
+            <div class="container alert alert-danger">Votre produit a bien été modifié !</div>   
+        <?php
+        header('location: produits.php');    
     }
-   
 }
-
-else{
-    $_SESSION['flash']['danger'] = "Tous les champs sont obligatoires.";
-}
-
 
 ?>
+
+<?php if(!empty($errors)):?>
+<div class="container alert alert-danger">
+    <p>Vous n'avez pas rempli le formulaire correctement</p>
+    <ul>
+        <?php foreach ($errors as $error): ?>
+            <li><?=$error;?></li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<?php endif; ?>
+
+
 <div class="container col-sm-offset-4 col-sm-3">
 <h3>Ajouter un produit</h3>
 <form action="" method="post">
