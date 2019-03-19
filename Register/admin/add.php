@@ -48,19 +48,19 @@ if(!empty($_POST)){
 }
 ?>
 <div class="container col-sm-offset-4 col-sm-3">
-
+<h3>Ajouter un utilisateur</h3>
 <form action="" method="post">
 <?php
 if(($_SESSION["auth"]->admin == 1)){
 
     $add = new Form($_POST);
 
-    echo $add->input("username", "text");
-    echo $add->input("email", "email");
-    echo $add->input("password", "password");
-    echo $add->input("password_confirm", "password");
+    echo $add->input("username", "text", "Nom d'utilisateur");
+    echo $add->input("email", "email", "Adresse email");
+    echo $add->input("password", "password", "Mot de passe");
+    echo $add->input("password_confirm", "password", "Confirmez le mot de passe");
     echo $add->submit();
-    echo $add->checkbox("is_admin");
+    echo $add->checkbox("Administrateur");
 
 }
 
