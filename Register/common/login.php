@@ -28,7 +28,7 @@ if (!empty($_POST) && !empty($_POST["email"]) && !empty($_POST["password"])){
       require_once '../class/form.php';
 ?>
 
-<h1>Se connecter</h1>
+
 
 
 <?php if(!empty($errors)):?>
@@ -41,7 +41,8 @@ if (!empty($_POST) && !empty($_POST["email"]) && !empty($_POST["password"])){
         </ul>
     </div>
 <?php endif; ?>
-
+<div class="container col-sm-offset-4 col-sm-3">
+    <h1>Se connecter</h1>
 <form action="" method="post">
 
 <?php
@@ -55,5 +56,6 @@ if (!empty($_POST) && !empty($_POST["email"]) && !empty($_POST["password"])){
 <form action="recupmdp.php" method="post">
 <button class="btn btn-primary">Mot de passe oublié</button>
 </form>
+	<?php require_once '../inc/footer.php'; ?>
 
-<?php require_once '../inc/footer.php'; ?>
+</div>

@@ -47,6 +47,8 @@ if(!empty($_POST)){
     }
 }
 ?>
+<div class="container col-sm-offset-4 col-sm-3">
+
 <form action="" method="post">
 <?php
 if(($_SESSION["auth"]->admin == 1)){
@@ -61,8 +63,10 @@ if(($_SESSION["auth"]->admin == 1)){
     echo $add->checkbox("is_admin");
 
 }
+
 else{
     header("location: index.php");
 
 } ?>
 </form>
+</div>

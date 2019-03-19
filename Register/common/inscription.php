@@ -41,7 +41,6 @@ if(!empty($_POST)){
     }
 }
 ?>
-<h1>S'inscrire</h1>
 
 <?php if(!empty($errors)):?>
 <div class="alert alert-danger">
@@ -56,7 +55,9 @@ if(!empty($_POST)){
 
 
 <form action="" method="post">
-<?php
+    <div class="container col-sm-offset-4 col-sm-3">
+        <h1>S'inscrire</h1>
+        <?php
     $register = new Form($_POST);
 
     echo $register->input("username", "text");
@@ -67,5 +68,5 @@ if(!empty($_POST)){
 
 ?>
 </form>
-
 <?php require '../inc/footer.php'; ?>
+</div>
