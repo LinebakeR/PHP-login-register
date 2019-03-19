@@ -42,7 +42,7 @@ if (!empty($_POST) && !empty($_POST["email"]) && !empty($_POST["password"])){
     </div>
 <?php endif; ?>
 <div class="container col-sm-offset-4 col-sm-3">
-    <h1>Se connecter</h1>
+    <h3>Se connecter</h3>
 <form action="" method="post">
 
 <?php

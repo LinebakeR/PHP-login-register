@@ -5,7 +5,7 @@ include_once '../inc/function.php'; ?>
 
 <?php // if(isset($_SESSION['auth'])): ?>
 
-<h1>Votre compte</h1>
+<h2>Votre compte</h2>
 <?php debug($_SESSION); ?>
 
 <?php //else: ?>

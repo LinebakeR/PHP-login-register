@@ -27,7 +27,7 @@ require_once '../inc/db.php';
 ?>
 
 
-<h1>Modifier son compte</h1>
+<h3>Modifier son compte</h3>
 
 <form action="" method="post">
 
