@@ -23,11 +23,11 @@ class Form{
         return isset($this->data[$index]) ? $this->data[$index] : null;
     }
 
-    public function input($name, $type){
+    public function input($name, $type, $label = null){
 
         return
             $this->surround(
-                '<label for="' .$name. '">'.$name.'</label>'.
+                '<label for="' .$name. '">'.$label.'</label>'.
             '<input type="'. $type .'" name="'. $name .'" value="' . $this->getValue($name) . '" class="form-control">'
         );
 

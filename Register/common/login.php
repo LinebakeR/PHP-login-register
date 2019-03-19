@@ -47,8 +47,8 @@ if (!empty($_POST) && !empty($_POST["email"]) && !empty($_POST["password"])){
 
 <?php
         $login = new Form($_POST);
-        echo $login->input("email", "email");
-        echo $login->input("password", "password");
+        echo $login->input("email", "email", "Votre adresse email");
+        echo $login->input("password", "password", "Mot de passe");
        // echo $login->input("password_confirm", "password");
         echo $login->submit();
 ?>
