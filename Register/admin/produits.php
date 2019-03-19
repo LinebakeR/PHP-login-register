@@ -57,8 +57,8 @@ else{
 
             <tr>
                 <td><?php echo $table[$i]->Name; ?></td>
-                <td><?php echo $table[$i]->price; ?></td>
-                <td><?php echo $table[$i]->name; ?></td>
+                <td class="text-right"><?php echo $table[$i]->price; ?></td>
+                <td class="text-center"><?php echo $table[$i]->name; ?></td>
                 <td class="text-center col-sm-1"><a href="products_page.php?product_id=<?php echo $table[$i]->Id; ?>">
                 <i class="material-icons">account_box</i></a></td>
                 <td class="text-center col-sm-1"><a href="products_edit.php?product_id=<?php echo $table[$i]->Id; ?>">
