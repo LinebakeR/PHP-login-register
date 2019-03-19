@@ -58,7 +58,7 @@ else{
             <tr>
                 <td><?php echo $table[$i]->username; ?></td>
                 <td><?php echo $table[$i]->email; ?></td>
-                <td class="text-center col-sm-1"><a href="user_page.php?user_id=<?php echo $table[$i]->id; ?>">
+                <td class="text-center col-sm-1"><a href="users_page.php?user_id=<?php echo $table[$i]->id; ?>">
                 <i class="material-icons">account_box</i></a></td>
                 <td class="text-center col-sm-1"><a href="users_edit.php?user_id=<?php echo $table[$i]->id; ?>">
                 <i class="material-icons">edit</i></a></td>
