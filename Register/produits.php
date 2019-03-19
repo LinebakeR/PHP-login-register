@@ -52,7 +52,6 @@ else{
         $connect->execute();
         $table = $connect->fetchAll();
 
-        print_r($table);
 
 
     foreach($table as $object)
