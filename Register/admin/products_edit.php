@@ -6,6 +6,7 @@ include_once "../class/form.php";
 $id = $_GET['product_id'];
 $nom = $_POST['name'];
 $prix = $_POST['price'];
+$category = $_POST['category_id'];
 
 if(!empty($_POST)){
 
@@ -31,23 +32,7 @@ if(!empty($_POST)){
 
 
         require_once '../inc/db.php';
-
-
-        $req = $pdo->prepare("SELECT id FROM products WHERE name = ?");
-        $req->execute([$_POST["name"]]);
-        $name = $req->fetch();
-    }
-//var_dump($name);
-    if (isset($name->id)) {
-        ?>
-            <div class="container alert alert-danger">Ce nom est déjà utilisé.</div>   
-        <?php
-        
-    }
-    else{
-
-        $req = $pdo->prepare("UPDATE products SET name = '$nom', price = '$prix' WHERE category_id = '".$id."'");
-        echo $_GET['name'];
+        $req = $pdo->prepare("UPDATE products SET name = '$nom', price = '$prix', category_id = '$category' WHERE id = '$id'");
         $req->execute();
          ?>
             <div class="container alert alert-danger">Votre produit a bien été modifié !</div>   
@@ -71,7 +56,7 @@ if(!empty($_POST)){
 
 
 <div class="container col-sm-offset-4 col-sm-3">
-<h3>Ajouter un produit</h3>
+<h3>Modifier un produit</h3>
 <form action="" method="post">
 <?php
 if(($_SESSION["auth"]->admin == 1)){
