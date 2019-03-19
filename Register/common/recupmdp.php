@@ -2,8 +2,11 @@
 require_once '../inc/function.php';
 require_once "../class/form.php";
 
+$sujet = "Nouveau mot de passe";
+$message = "Voici votre nouveau mot de passe" . $recupCode;
+
+
 if($_POST){
-    echo "coucou ";
     if(!empty($_POST['email'])){
         if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
             
@@ -19,25 +22,26 @@ if($_POST){
             //si mail OK, creation nouveau hash mdp
             if($mailverif){
                 
-                echo "Email valide";
+                $_SESSION['flash']['success'] = "Votre nouveau mot de passe vous a été envoyé !";
                 $recupCode = str_random(8);
                 $hash_code = password_hash($recupCode, PASSWORD_DEFAULT);
                 $newMdp = $pdo->prepare("UPDATE users SET password = '$hash_code' WHERE email = '$email'");
                 $newMdp->execute([$hash_code]);
-                mail($email, "Nouveau mot de passe", "Voici votre nouveau mot de passe " . $recupCode .);
-                //die(var_dump($recupCode)); pour test
+                mail($email, $sujet, $message);
+                
+                //die(var_dump($recupCode)); pour teste
                 
             }
             else{
-                echo "Cette adresse email n'est pas enregistré";
+                $_SESSION['flash']['danger'] = "Cette adresse email n'est pas enregistré";
             }
         }
         else{
-            echo "L'email n'est pas valide";
+            $_SESSION['flash']['danger'] = "L'email n'est pas valide";
         }
     }
     else{
-        echo "Veuillez entrer votre adresse mail";
+        $_SESSION['flash']['danger'] = "Veuillez entrer votre adresse mail";
     }
 }
 ?>
