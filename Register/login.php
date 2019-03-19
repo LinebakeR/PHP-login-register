@@ -1,14 +1,14 @@
 <?php
 require_once 'inc/function.php';
 
-if (!empty($_POST) && !empty($_POST["email"]) && !empty($_POST["password"]) && !empty($_POST["password_confirm"])){
+if (!empty($_POST) && !empty($_POST["email"]) && !empty($_POST["password"])){
 
     require_once 'inc/db.php';
     session_start();
     $req = $pdo->prepare("SELECT * FROM users WHERE email = :email");
     $req->execute(["email" =>$_POST["email"]]);
     $user = $req->fetch();
-    if (password_verify($_POST["password"], $user->password) && ($_POST["password_confirm"] == $_POST["password"])){
+    if (password_verify($_POST["password"], $user->password)){
 
         $_SESSION["auth"] = $user;
         $_SESSION["flash"]["success"] = "Vous etes bien connecté";
@@ -48,7 +48,7 @@ if (!empty($_POST) && !empty($_POST["email"]) && !empty($_POST["password"]) && !
         $login = new Form($_POST);
         echo $login->input("email", "email");
         echo $login->input("password", "password");
-        echo $login->input("password_confirm", "password");
+       // echo $login->input("password_confirm", "password");
         echo $login->submit();
 ?>
 </form>

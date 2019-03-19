@@ -57,6 +57,7 @@ if(($_SESSION["auth"]->admin == 1)){
     echo $add->input("password", "password");
     echo $add->input("password_confirm", "password");
     echo $add->submit();
+    echo $add->checkbox("is_admin");
 
 }
 else{

@@ -26,14 +26,14 @@ if(isset($_POST['submit'])){
                     $recupCode = str_random(8);
                     $hash_code = password_hash($recupCode, PASSWORD_DEFAULT);
                     var_dump($hash_code);
-                }
             }
+        }
 
                     else{
 
                         $_SESSION['flash']['danger'] = "Votre email n'existe pas";    
                     }
-        }
+    }
         else
             {
             $_SESSION['flash']['danger'] = "Veuillez entrer votre adresse email";
@@ -42,8 +42,7 @@ if(isset($_POST['submit'])){
 
 ?>
 <h4 class="title-element"> Récupération du mot de passe</h4>
-<form method="post" action
-      class="default-form">
-    <input type="email" name="email" placeholder="Votre adresse mail" action="">
-    <input type="submit" value="Submit" name="submit">
+<form method="post" class="form-control">
+    <input type="email" name="email" placeholder="Votre adresse mail">
+    <button class="btn-primary">Envoyer un email</button>
     </form>

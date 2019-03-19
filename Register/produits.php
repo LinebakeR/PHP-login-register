@@ -21,58 +21,58 @@ if(($_SESSION["auth"]->admin == 1)){?>
 }
 else{
     header('Location: index.php');
-//    echo "toto";
+    //    echo "toto";
 } ?>
 
 <div class="container">
 
-
-    <table class="table table-striped table-bordered table-hover table-responsive">
-    <thead class="thead-dark">
-
-    <table class="table table-striped table-bordered table-hover table-responsive">   
-    <thead>
-
-    <tr>
-      <th scope="col" class="text-center">Nom</th>
-      <th scope="col" class="text-center">Price</th>
-      <th scope="col" class="text-center">Category</th>
-      <th scope="col" class="text-center">Display</th>
-      <th scope="col" class="text-center">Edit</th>
-      <th scope="col" class="text-center">Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-
     <?php
-        $connect = $pdo->prepare("SELECT products.name AS 'Name', price, categories.name 
-                                  FROM products INNER JOIN categories 
-                                  ON products.category_id = categories.id 
-                                  ORDER BY products.name");
+        $connect = $pdo->prepare("SELECT products.id AS 'Id', products.name AS 'Name', price, categories.name 
+                                 FROM products INNER JOIN categories 
+                                 ON products.category_id = categories.id 
+                                 ORDER BY products.name");
         $connect->execute();
         $table = $connect->fetchAll();
 
+    ?>
 
+    <table class="table table-striped table-bordered table-hover table-responsive">
+        <thead class="thead-dark">
 
-    foreach($table as $object)
-    {?>
-
-    <tr>
-    <?php
-        foreach($object as $values)
-        {?>
-            <td><?php echo $values; ?></td>
-        <?php
-        }?>
-            <td class="text-center col-sm-1"><a href="products_page.php"><i class="material-icons">account_box</i></a></td>
-            <td class="text-center col-sm-1"><a href="products_edit.php"><i class="material-icons">edit</i></a></td>
-            <td class="text-center col-sm-1"><a href=""#""><i class="material-icons">delete</i></a></td>
-
+        <tr>
+        <th scope="col" class="text-center">Nom</th>
+        <th scope="col" class="text-center">Price</th>
+        <th scope="col" class="text-center">Category</th>
+        <th scope="col" class="text-center">Display</th>
+        <th scope="col" class="text-center">Edit</th>
+        <th scope="col" class="text-center">Delete</th>
         </tr>
-        <?php
-    }?>
+        </thead>
+        <tbody>
 
-    </tbody>
+            <?php
+                $i=0;
+                while ($table[$i])
+            {?>
+
+            <tr>
+                <td><?php echo $table[$i]->Name; ?></td>
+                <td><?php echo $table[$i]->price; ?></td>
+                <td><?php echo $table[$i]->name; ?></td>
+                <td class="text-center col-sm-1"><a href="products_page.php?product_id=<?php echo $table[$i]->Id; ?>">
+                <i class="material-icons">account_box</i></a></td>
+                <td class="text-center col-sm-1"><a href="products_edit.php?product_id=<?php echo $table[$i]->Id; ?>">
+                <i class="material-icons">edit</i></a></td>
+                <td class="text-center col-sm-1"><a href="products_delete.php?product_id=<?php echo $table[$i]->Id; ?>">
+                <i class="material-icons">delete</i></a></td>
+            </tr>
+
+            <?php
+            $i++;    
+            }?>
+
+
+        </tbody>
     </table>
 
 </div>
