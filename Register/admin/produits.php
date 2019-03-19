@@ -14,7 +14,7 @@ $admin = $query->fetch(PDO::FETCH_OBJ);
 
 if(($_SESSION["auth"]->admin == 1)){?>
 
-<h1 class="text-center">Espace Produits</h1>
+<h3 class="text-center">Espace Produits</h3>
 
 <?php //debug($_SESSION);
 
