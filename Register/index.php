@@ -5,6 +5,6 @@ if(isset($_SESSION["auth"])) {
 
 }
 else{
-    header('location: login.php');
+    header('location: /rush_php/Register/common/login.php');
 }
 require_once "inc/footer.php";

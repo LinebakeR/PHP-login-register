@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-include_once 'inc/function.php';
-include_once 'inc/header.php';
-include_once 'inc/db.php';
+include_once '../inc/function.php';
+include_once '../inc/header.php';
+include_once '../inc/db.php';
 ?>
 
 <?php
@@ -14,13 +14,20 @@ $admin = $query->fetch(PDO::FETCH_OBJ);
 
 if(($_SESSION["auth"]->admin == 1)){
 
-    $id = $_GET['user_id'];
-    $pdo->query("DELETE FROM users WHERE id = '$id'");
-    //deleteUser($id);
-    header('Location: admin.php');
+    $id = $_GET['product_id'];
+    $pdo->query("DELETE FROM products WHERE id = '$id'");
+    //deleteProduct($id);
+    header('Location: produits.php');
 
 }
 else{
     header('Location: index.php');
     //    echo "toto";
 } 
+
+
+
+
+
+
+?>

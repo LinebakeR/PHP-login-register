@@ -1,5 +1,5 @@
 <?php
-include "inc/header.php";
+include "../inc/header.php";
 if(isset($_POST)) {
     if(!empty($_POST["email"]) && !empty($_POST["username"]) && !empty($_POST["password"])) {
 

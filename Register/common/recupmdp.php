@@ -1,6 +1,6 @@
-<?php require_once 'inc/header.php';
-require_once 'inc/function.php';
-require_once "class/form.php";
+<?php require_once '../inc/header.php';
+require_once '../inc/function.php';
+require_once "../class/form.php";
 
 if($_POST){
     echo "coucou ";
@@ -11,7 +11,7 @@ if($_POST){
             $email = $_POST['email'];
             
             //1ere requete trouver email dans BDD
-            include_once "inc/db.php";
+            include_once "../inc/db.php";
             $confMail = $pdo->prepare('SELECT * FROM users WHERE email = ?');
             $confMail->execute([$email]);
             $mailverif = $confMail->fetch();

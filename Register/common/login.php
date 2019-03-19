@@ -1,9 +1,9 @@
 <?php
-require_once 'inc/function.php';
+require_once '../inc/function.php';
 
 if (!empty($_POST) && !empty($_POST["email"]) && !empty($_POST["password"])){
 
-    require_once 'inc/db.php';
+    require_once '../inc/db.php';
     session_start();
     $req = $pdo->prepare("SELECT * FROM users WHERE email = :email");
     $req->execute(["email" =>$_POST["email"]]);
@@ -24,8 +24,8 @@ if (!empty($_POST) && !empty($_POST["email"]) && !empty($_POST["password"])){
 }
 ?>
 
-<?php require_once 'inc/header.php';
-      require_once 'class/form.php';
+<?php require_once '../inc/header.php';
+      require_once '../class/form.php';
 ?>
 
 <h1>Se connecter</h1>
@@ -56,4 +56,4 @@ if (!empty($_POST) && !empty($_POST["email"]) && !empty($_POST["password"])){
 <button class="btn btn-primary">Mot de passe oublié</button>
 </form>
 
-<?php require_once 'inc/footer.php'; ?>
+<?php require_once '../inc/footer.php'; ?>

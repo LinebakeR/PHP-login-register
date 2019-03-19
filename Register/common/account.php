@@ -1,7 +1,7 @@
 <?php
 session_start();
-include_once 'inc/function.php'; ?>
-<?php include_once 'inc/header.php'; ?>
+include_once '../inc/function.php'; ?>
+<?php include_once '../inc/header.php'; ?>
 
 <?php // if(isset($_SESSION['auth'])): ?>
 
@@ -10,7 +10,7 @@ include_once 'inc/function.php'; ?>
 
 <?php //else: ?>
 <?php
-    include_once 'inc/db.php';
+    include_once '../inc/db.php';
     $query = $pdo->query("SELECT * FROM users");
     $users = $query->fetchAll(PDO::FETCH_OBJ);
 
@@ -29,4 +29,4 @@ include_once 'inc/function.php'; ?>
     <form action="modify.php">
      <button class="btn btn-primary">Modifier le compte</button>
     </form>
-<?php include_once 'inc/footer.php'; ?>
+<?php include_once '../inc/footer.php'; ?>

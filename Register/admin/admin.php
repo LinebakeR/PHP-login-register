@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-include_once 'inc/function.php';
-include_once 'inc/header.php';
-include_once 'inc/db.php';
+include_once '../inc/function.php';
+include_once '../inc/header.php';
+include_once '../inc/db.php';
 ?>
 
 <?php
@@ -20,7 +20,7 @@ if(($_SESSION["auth"]->admin == 1)){?>
 
 }
 else{
-    header('Location: index.php');
+    header('Location: ../index.php');
 //    echo "toto";
 } ?>
 

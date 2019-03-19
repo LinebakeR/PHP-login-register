@@ -1,6 +1,6 @@
-<?php require 'inc/header.php';
-      require 'inc/function.php';
-      require "class/form.php"?>
+<?php require '../inc/header.php';
+      require '../inc/function.php';
+require "../class/form.php" ?>
 <?php
 
 if(!empty($_POST)){
@@ -68,4 +68,4 @@ if(!empty($_POST)){
 ?>
 </form>
 
-<?php require 'inc/footer.php'; ?>
+<?php require '../inc/footer.php'; ?>

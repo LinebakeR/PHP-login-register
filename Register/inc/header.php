@@ -20,7 +20,9 @@ session_start();
     <title>Mon projet</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="css/app.css">
+      <link rel="stylesheet" href="../css/app.css">
+
+      <link rel="stylesheet" href="../Register/css/app.css">
   </head>
 
   <body>
@@ -34,7 +36,7 @@ session_start();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">Mon projet</a>
+          <a class="navbar-brand" href="/rush_php/Register/index.php">Mon projet</a>
         </div>
           <div>
               <a href="" class="navbar-brand"></a>
@@ -42,14 +44,14 @@ session_start();
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <?php if($_SESSION["auth"]->admin == 1){?>
-              <li><a href="admin.php">Administration</a></li>
+              <li><a href="../admin/admin.php">Administration</a></li>
               <?php } ?>
                   <?php if(isset($_SESSION['auth'])): ?>
-                  <li><a href="account.php">Mon compte</a></li>
-                      <li><a href="logout.php">Se déconnecter</a></li>
+                  <li><a href="/rush_php/Register/common/account.php">Mon compte</a></li>
+                      <li><a href="/rush_php/Register/common/logout.php">Se déconnecter</a></li>
                   <?php else: ?>
-            <li><a href="inscription.php">S'inscrire</a></li>
-            <li><a href="login.php">Se connecter</a></li>
+            <li><a href="/rush_php/Register/common/inscription.php">S'inscrire</a></li>
+            <li><a href="/rush_php/Register/common/login.php">Se connecter</a></li>
               <?php endif; ?>
           </ul>
         </div><!--/.nav-collapse -->

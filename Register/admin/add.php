@@ -1,6 +1,6 @@
 <?php
-include_once "inc/header.php";
-include_once "class/form.php";
+include_once "../inc/header.php";
+include_once "../class/form.php";
 
 if(!empty($_POST)){
 
